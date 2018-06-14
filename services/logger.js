@@ -19,7 +19,7 @@ class ConsoleLogger {
 	}
 };
 
-const logger = process.env.NODE_ENV == 'production' ? new winston.Logger() : ConsoleLogger;
+const logger = process.env.NODE_ENV != 'production' ? new winston.Logger() : ConsoleLogger;
 
 if (process.env.NODE_ENV == 'production') {
 	logger.add(logsene, {

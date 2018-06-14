@@ -24,8 +24,9 @@ app.post('/', (req, res) => {
 	try {
 		const { queue } = req.body;
 		queue.forEach(({ level, payload }) => {
-			logger[level]('Received client log event', payload);
-		})
+			console.log({level, payload})
+			logger[level]('Received client log event.');
+		});
 		res.status(200).send('success!');
 	} catch(exception) {
 		res.status(500).send(exception);
